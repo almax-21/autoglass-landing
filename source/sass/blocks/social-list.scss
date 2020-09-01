@@ -1,0 +1,39 @@
+/* social-list */
+
+.social-list {
+  @include list-reset;
+}
+
+.social-list__item {
+  display: inline-block;
+  margin-right: 15px;
+
+  vertical-align: middle;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social-list__item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  background-color: #ff0000;
+  border-radius: 25%;
+
+  &:hover {
+    background-color: #d60a0a;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.social-list__item svg {
+  fill: #fefefe;
+}

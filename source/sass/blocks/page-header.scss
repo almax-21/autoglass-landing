@@ -1,0 +1,16 @@
+/* page-header */
+
+.page-header {
+  padding: 9px;
+
+  background-image: linear-gradient(to bottom, #993333, #222222);
+}
+
+@media (min-width: $tablet-width) {
+  .page-header {
+    padding-right: 0;
+    padding-left: 0;
+
+    box-shadow: 0 5px 15px 0 rgba(0, 1, 1, 0.2);
+  }
+}

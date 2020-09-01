@@ -1,0 +1,22 @@
+/* adress */
+
+.adress {
+  width: 172px;
+
+  text-align: center;
+}
+
+.adress__street {
+  font-size: 14px;
+  color: #c2c2c2;
+}
+
+.adress__tel {
+  font-weight: bold;
+  font-size: 21px;
+  color: #ffffff;
+
+  span {
+    color: #ff0000;
+  }
+}

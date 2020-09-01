@@ -1,0 +1,123 @@
+/* services */
+
+.services {
+  padding-top: 30px;
+
+  background-color: #ffffff;
+}
+
+.services__title {
+  margin-top: 0;
+
+  font-size: 28px;
+  text-align: center;
+}
+
+.services__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include list-reset;
+}
+
+.services__item {
+  width: 285px;
+  min-height: 380px;
+  margin-bottom: 30px;
+
+  background-color: lightgray;
+}
+
+.services__subtitle {
+  margin-bottom: 20px;
+
+  text-align: center;
+}
+
+.services__text {
+  width: 260px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+@media (min-width: $tablet-width) {
+  .services__title {
+    font-size: 32px;
+  }
+
+  .services__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 590px;
+    margin: 0 auto;
+  }
+
+  .services__item {
+    min-height: 410px;
+    margin-right: 20px;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+
+  .services__subtitle {
+    margin-bottom: 30px;
+  }
+
+  .services__item--sale .services__subtitle {
+    margin-bottom: 50px;
+  }
+
+  .services__item--molding .services__subtitle {
+    margin-bottom: 30px;
+  }
+
+  .services__item--rearview .services__subtitle {
+    margin-bottom: 50px;
+  }
+
+  .services__item--repair .services__subtitle {
+    margin-bottom: 50px;
+  }
+
+  .services__item--taillight .services__subtitle {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 935px) {
+  .services__list {
+    width: 895px;
+  }
+
+  .services__item:nth-child(even) {
+    margin-right: 20px;
+  }
+
+  .services__item:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .services__title {
+    font-size: 38px;
+  }
+
+  .services__list {
+    width: auto;
+    margin: 0;
+  }
+
+  .services__item:nth-child(3n) {
+    margin-right: 20px;
+  }
+
+  .services__item:nth-child(4n) {
+    margin-right: 0;
+  }
+}

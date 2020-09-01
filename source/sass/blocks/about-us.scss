@@ -1,0 +1,49 @@
+/* about-us */
+
+.about-us {
+  margin: 0;
+  padding: 20px;
+  padding-bottom: 1px;
+
+  font-size: 18px;
+}
+
+.about-us__text {
+  max-width: 450px;
+  margin: 0 auto 15px;
+}
+
+.about-us__subtitle {
+  max-width: 265px;
+  margin-right: auto;
+  margin-left: auto;
+
+  font-size: 25px;
+  text-align: center;
+}
+
+@media (min-width: $tablet-width) {
+  .about-us {
+    padding-top: 30px;
+
+    font-size: 20px;
+  }
+
+  .about-us__text {
+    max-width: 84%;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .about-us {
+    padding-top: 40px;
+
+    font-size: 24px;
+  }
+
+  .about-us__subtitle {
+    max-width: 350px;
+
+    font-size: 32px;
+  }
+}

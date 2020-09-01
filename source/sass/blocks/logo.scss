@@ -1,0 +1,22 @@
+/* logo */
+
+.logo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 275px;
+  height: 51px;
+
+  font-weight: bold;
+  font-size: 16px;
+  color: #fefefe;
+}
+
+.logo__image {
+  margin-right: 10px;
+}
+
+.logo__text {
+  cursor: default;
+}
