@@ -1,22 +1,15 @@
 // main-navigation
 
-var navMain = document.querySelector(".main-nav");
-var navToggle = document.querySelector(".toggle");
+const navMain = document.querySelector(".main-nav");
+const navToggle = document.querySelector(".toggle");
 
 navMain.classList.remove("main-nav--nojs");
 
-navToggle.addEventListener("click", function () {
-  if (navMain.classList.contains("main-nav--closed")) {
-    navMain.classList.remove("main-nav--closed");
-    navMain.classList.add("main-nav--opened");
-    navToggle.classList.add("toggle--active");
-  } else {
-    navMain.classList.add("main-nav--closed");
-    navMain.classList.remove("main-nav--opened");
-    navToggle.classList.remove("toggle--active");
-  }
-});
-
+navToggle.onclick = () => {
+  navMain.classList.toggle("main-nav--closed");
+  navMain.classList.toggle("main-nav--opened");
+  navToggle.classList.toggle("toggle--active");
+};
 
 
 // smooth-scroll
@@ -24,18 +17,17 @@ navToggle.addEventListener("click", function () {
 'use strict';
 
 (function () {
-  var anchorLinks = document.querySelectorAll('a[href^="#"]:not([href$="#"])');
-
+  const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href$="#"])');
 
   if (window.smoothscroll) {
     window.__forceSmoothScrollPolyfill__ = true;
     window.smoothscroll.polyfill();
   }
 
-  var initScrollThrough = function (link) {
-    link.addEventListener('click', function (event) {
-      event.preventDefault();
-      var currentSection = document.querySelector(event.target.hash);
+  const initScrollThrough = (link) => {
+    link.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      const currentSection = document.querySelector(evt.target.hash);
 
       if (currentSection) {
         currentSection.scrollIntoView({behavior: 'smooth'});
@@ -43,8 +35,8 @@ navToggle.addEventListener("click", function () {
     });
   };
 
-  var initAnchors = function (links) {
-    for (var i = 0; i < links.length; i++) {
+  const initAnchors = (links) => {
+    for (let i = 0; i < links.length; i += 1) {
       initScrollThrough(links[i]);
     }
   };
@@ -53,42 +45,40 @@ navToggle.addEventListener("click", function () {
 })();
 
 
+// modals
 
-// pop-up
+const showButtons = document.querySelectorAll(".quality-list__picture");
+const modals = document.querySelectorAll(".modal");
+const closeButtons = document.querySelectorAll(".modal__close");
+const modalBackground = document.querySelector(".modal-background");
 
-var showButtons = document.querySelectorAll(".quality-list__picture");
-var popups = document.querySelectorAll(".modal");
-var closeButtons = document.querySelectorAll(".modal__close");
-var popupBackground = document.querySelector(".modal-background");
+const addClickHandler = function (button, modal, close) {
+  const removeModal = () => {
+    modal.classList.remove("modal--show");
+    modalBackground.classList.remove("modal-background--show");
+  };
 
-var addClickHandler = function (button, popup, close) {
-  button.addEventListener('click', function (evt) {
+  button.addEventListener('click', (evt) => {
     evt.preventDefault();
-    popup.classList.add("modal--show");
-    popupBackground.classList.add("modal-background--show");
+    modal.classList.add("modal--show");
+    modalBackground.classList.add("modal-background--show");
   });
 
-  close.addEventListener("click", function () {
-    popup.classList.remove("modal--show");
-    popupBackground.classList.remove("modal-background--show");
+  close.addEventListener("click", () => {
+    removeModal();
   });
 
-  popupBackground.addEventListener("click", function () {
-    popup.classList.remove("modal--show");
-    popupBackground.classList.remove("modal-background--show");
+  modalBackground.addEventListener("click", () => {
+    removeModal();
   });
 
-  window.addEventListener("keydown", function (evt) {
+  window.addEventListener("keydown", (evt) => {
     if (evt.keyCode === 27) {
-      if (popup.classList.contains("modal--show")) {
-        evt.preventDefault();
-        popup.classList.remove("modal--show");
-        popupBackground.classList.remove("modal-background--show");
-      }
+      removeModal();
     }
   });
 };
 
 for (var i = 0; i < showButtons.length; i++) {
-  addClickHandler(showButtons[i], popups[i], closeButtons[i]);
+  addClickHandler(showButtons[i], modals[i], closeButtons[i]);
 }
